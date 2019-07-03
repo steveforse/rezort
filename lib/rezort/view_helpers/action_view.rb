@@ -14,7 +14,7 @@ module ReZort
         css = ""
 
         # Toggle the direction of the sorting
-        chevron_direction = 'none'
+        chevron_direction = nil
         if params[:sort]
           old_column, old_direction = params[:sort].reverse.split('_', 2).map(&:reverse).reverse
           if old_column == column
@@ -39,7 +39,8 @@ module ReZort
         html_class += ' rezort'
         html_options[:class] = html_class
 
-        chevron = tag('span', class: "glyphicon glyphicon-chevron-#{chevron_direction}").html_safe
+
+        chevron = chevron_direction ? tag('span', class: "fas fa-chevron-#{chevron_direction}") : ''
         link_to(link_text.html_safe + ' ' + chevron, url_for(merged_params), html_options)
       end
     end
