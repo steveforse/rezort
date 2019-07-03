@@ -31,7 +31,7 @@ module ReZort
         end
 
         # Preserve other GET parameters
-        merged_params = request.GET
+        merged_params = request.params
         merged_params[:sort] = column + '_' + direction
 
         # Add rezort class
