@@ -10,7 +10,7 @@ sort string to let you sort large datasets over many pages (using
 Generate a sorted link with the email attribute:
 
 ```ruby
-link_to_rezort "Email", :email
+sortable "Email", :email
 ```
 
 Works the same as the `link_to` method except a second argument for the
@@ -21,12 +21,8 @@ sort attribute is needed.
 Using the `rezort` method with the optional default order argument:
 
 ```ruby
-@users = User.rezort(params[:sort], "email ASC").page(params[:page])
+@users = User.rezort(params[:sort], "email ASC")
 ```
-
-### Rubies
-
-* 2.1.0.
 
 ### ORMs
 
